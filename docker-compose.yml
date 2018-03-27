@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+
+    # Main Container
+    app:
+        container_name: gclub-app
+        restart: always
+        image: php:7-alpine
+        networks:
+            network:
+                ipv4_address: 172.10.0.2
+        volumes:
+            - .:/app
+        ports:
+            - 80:80
+        command: php app/artisan serve --host 172.10.0.2 --port 80
+
+    # Database container
+    db:
+        container_name: gclub-db
+        restart: always
+        image: mysql:latest
+        networks:
+            network:
+                ipv4_address: 172.10.0.3
+        volumes:
+            - ./data:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=gclub_db
+
+networks:
+    network:
+        name: gclub-network
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.10.0.0/16
