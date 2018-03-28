@@ -9,12 +9,12 @@ services:
         image: php:7-alpine
         networks:
             network:
-                ipv4_address: 172.10.0.2
+                ipv4_address: 172.11.0.2
         volumes:
             - .:/app
         ports:
             - 80:80
-        command: php app/artisan serve --host 172.10.0.2 --port 80
+        command: php app/artisan serve --host 172.11.0.2 --port 80
 
     # Database container
     db:
@@ -23,7 +23,7 @@ services:
         image: mysql:latest
         networks:
             network:
-                ipv4_address: 172.10.0.3
+                ipv4_address: 172.11.0.3
         volumes:
             - ./data:/var/lib/mysql
         environment:
@@ -36,4 +36,4 @@ networks:
         driver: bridge
         ipam:
             config:
-                - subnet: 172.10.0.0/16
+                - subnet: 172.11.0.0/16
