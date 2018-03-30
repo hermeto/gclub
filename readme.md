@@ -59,6 +59,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Start application
-- run composer install
+- git clone
+- docker run --rm -v $(pwd)/gclub:/app composer:latest install
+- docker-compose up -d
+- docker exec -it gclub-app php artisan migrate
+- docker exec -it gclub-app php artisan db:seed
 
 template: https://getbootstrap.com/docs/4.0/examples/pricing/

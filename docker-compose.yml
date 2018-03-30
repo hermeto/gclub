@@ -6,7 +6,7 @@ services:
     app:
         container_name: gclub-app
         restart: always
-        image: php:7-alpine
+        image: hermeto/gclub:php7-alpine
         networks:
             network:
                 ipv4_address: 172.11.0.2
@@ -14,7 +14,8 @@ services:
             - .:/app
         ports:
             - 80:80
-        command: php app/artisan serve --host 172.11.0.2 --port 80
+        working_dir: /app
+        command: php artisan serve --host 172.11.0.2 --port 80
 
     # Database container
     db:
@@ -24,8 +25,6 @@ services:
         networks:
             network:
                 ipv4_address: 172.11.0.3
-        volumes:
-            - ./data:/var/lib/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=root
             - MYSQL_DATABASE=gclub_db

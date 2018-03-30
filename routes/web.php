@@ -1,8 +1,10 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::post('/start', 'StartController@process');
 
 Route::get('/group', function () {
     return view('group');

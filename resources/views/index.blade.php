@@ -11,7 +11,8 @@
     <h1 class="display-4">Gamers Club Challenge</h1>
 </div>
 <div class="container">
-    <form method="post" action="/teste">
+    <form method="post" action="/start">
+        @csrf
         <div class="col-4">
             <button type="submit" class="btn btn-lg btn-block btn-primary">Start</button>
         </div>
