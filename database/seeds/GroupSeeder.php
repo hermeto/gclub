@@ -19,7 +19,6 @@ class GroupSeeder extends Seeder
      */
     public function __construct()
     {
-        DB::table('groups')->truncate();
         $this->faker = Faker::create();
     }
 

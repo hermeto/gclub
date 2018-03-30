@@ -19,7 +19,6 @@ class TeamSeeder extends Seeder
      */
     public function __construct()
     {
-        DB::table('teams')->truncate();
         $this->faker = Faker::create();
     }
 
