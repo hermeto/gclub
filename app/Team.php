@@ -13,6 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class Team extends Model
 {
     /**
+     * @var string
+     */
+    protected $table = 'teams';
+
+    /**
      * @var bool
      */
     public $timestamps = false;

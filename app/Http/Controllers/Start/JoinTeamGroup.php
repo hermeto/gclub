@@ -8,17 +8,16 @@ use App\Team;
 use App\TeamGroup;
 
 /**
- * Class RuffleTeamGroup
+ * Class JoinTeamGroup
  * @package App\Http\Controllers\Start
  */
-class RuffleTeamGroup extends Controller
+class JoinTeamGroup extends Controller
 {
     /**
-     * Ruffle a team in a group.
+     * Join a team in a group.
      */
     public function run()
     {
-        dump('vinculando times aos grupos');
         $teams = Team::all();
         $start = 0;
         foreach (Group::all() as $group) {

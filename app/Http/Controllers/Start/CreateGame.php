@@ -24,7 +24,6 @@ class CreateGame extends Controller
             foreach ($teamGroup as $challenger) {
                 foreach ($teamGroup as $challenged) {
                     if ($challenger->team_id != $challenged->team_id) {
-                        dump('criando jogos');
                         (new CreateRound($group->id, $challenger->team_id, $challenged->team_id))->run();
                     }
                 }

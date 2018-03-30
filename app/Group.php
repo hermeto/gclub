@@ -13,6 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     /**
+     * @var string
+     */
+    protected $table = 'groups';
+
+    /**
      * @var bool
      */
     public $timestamps = false;

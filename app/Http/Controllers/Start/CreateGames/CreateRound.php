@@ -47,7 +47,6 @@ class CreateRound extends Controller
         $challenger_score = 0;
         $challenged_score = 0;
         while ($challenger_score < 16 && $challenged_score < 16) {
-            dump('criando rounds');
             (bool)rand(0, 1) ? $challenger_score++ : $challenged_score++;
         }
         $this->saveResult($challenger_score, $challenged_score);

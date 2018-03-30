@@ -21,4 +21,24 @@ class TeamGroup extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Self belongs to Team
+     * @property int id
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    /**
+     * Self belongs to Group
+     * @property int id
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
 }
