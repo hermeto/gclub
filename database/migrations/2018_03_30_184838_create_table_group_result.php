@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreateTableGroupResults
  */
-class CreateTableGroupResults extends Migration
+class CreateTableGroupResult extends Migration
 {
     /**
      * Run the migrations.

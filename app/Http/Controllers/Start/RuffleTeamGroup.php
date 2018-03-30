@@ -18,10 +18,10 @@ class RuffleTeamGroup extends Controller
      */
     public function run()
     {
-        $groups = Group::all();
+        dump('vinculando times aos grupos');
         $teams = Team::all();
         $start = 0;
-        foreach ($groups as $group) {
+        foreach (Group::all() as $group) {
             foreach (range(0, 4) as $item) {
                 $teamGroup = new TeamGroup();
                 $teamGroup->group_id = $group->id;

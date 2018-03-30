@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Start\CreateGames;
+use App\Http\Controllers\Start\CreateGame;
 use App\Http\Controllers\Start\RuffleTeamGroup;
 
 /**
@@ -16,7 +16,7 @@ class StartController extends Controller
      */
     public function process()
     {
-        //(new RuffleTeamGroup())->run();
-        (new CreateGames())->run();
+        (new RuffleTeamGroup())->run();
+        (new CreateGame())->run();
     }
 }
