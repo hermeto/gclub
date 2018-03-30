@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TeamGroup
- * @property int id
  * @property int team_id
  * @property int group_id
  * @package App

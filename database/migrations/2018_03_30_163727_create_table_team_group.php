@@ -17,10 +17,9 @@ class CreateTableTeamGroup extends Migration
     public function up()
     {
         Schema::create('teams_groups_mapping', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('team_id');
-            $table->foreign('team_id')->references('id')->on('teams');
             $table->unsignedInteger('group_id');
+            $table->foreign('team_id')->references('id')->on('teams');
             $table->foreign('group_id')->references('id')->on('groups');
         });
     }
