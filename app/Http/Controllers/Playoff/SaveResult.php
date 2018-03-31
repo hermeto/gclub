@@ -59,6 +59,9 @@ class SaveResult extends Controller
         $this->phase = $phase;
     }
 
+    /**
+     *
+     */
     public function run()
     {
         $playoff = new Playoff();

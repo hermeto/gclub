@@ -39,6 +39,6 @@ class MatchController extends Controller
             $results[$key]['close'] = (($key + 1) % 5 == 0) ? true : false;
             $results[$key]['winner'] = ($result->challenger_score > $result->challenged_score) ? true : false;
         }
-        return view('group/match')->with('results', $results);
+        return view('match')->with('results', $results);
     }
 }

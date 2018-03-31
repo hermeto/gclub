@@ -7,7 +7,7 @@ use App\TeamGroup;
 
 /**
  * Class GroupController
- * @package App\Http\Controllers\Start
+ * @package App\Http\Controllers
  */
 class GroupController extends Controller
 {

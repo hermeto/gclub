@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Start\CreateGame;
+namespace App\Http\Controllers\Process\CreateGame;
 
 use App\Http\Controllers\Controller;
 
 /**
  * Class CreateRound
- * @package App\Http\Controllers\Start\CreateGame
+ * @package App\Http\Controllers\Process\CreateGame
  */
 class CreateRound extends Controller
 {

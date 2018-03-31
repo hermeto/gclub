@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Start;
+namespace App\Http\Controllers\Process;
 
 use App\Group;
 use App\Http\Controllers\Controller;
@@ -9,7 +9,7 @@ use App\TeamGroup;
 
 /**
  * Class JoinTeamGroup
- * @package App\Http\Controllers\Start
+ * @package App\Http\Controllers\Process
  */
 class JoinTeamGroup extends Controller
 {

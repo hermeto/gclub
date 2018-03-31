@@ -13,17 +13,18 @@ use Request;
 class PlayoffController extends Controller
 {
     /**
-     *
+     * Run playoffs process.
      */
     public function run()
     {
         foreach (range(0, 4) as $phase) {
             (new CreateGame($phase))->run();
         }
-        return redirect('/playoffs/result');
+        return redirect('/playoff/result/0');
     }
 
     /**
+     * Show results.
      * @return $this
      */
     public function show()

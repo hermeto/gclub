@@ -19,4 +19,5 @@
     @endforeach
     <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/geral">Classificação Geral</a>
     <a type="button" class="btn btn-lg btn-block btn-outline-danger" href="/playoff">Playoffs</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-info" href="/">Voltar</a>
 @stop

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Start\CreateGame;
-use App\Http\Controllers\Start\JoinTeamGroup;
+use App\Http\Controllers\Process\CreateGame;
+use App\Http\Controllers\Process\JoinTeamGroup;
 
 /**
  * Class ProcessController

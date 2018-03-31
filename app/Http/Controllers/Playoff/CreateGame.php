@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Playoff;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Start\CreateGame\CreateRound;
+use App\Http\Controllers\Process\CreateGame\CreateRound;
 
 /**
  * Class CreateGame
