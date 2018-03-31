@@ -31,6 +31,7 @@ class GroupController extends Controller
     }
 
     /**
+     * Prepare teams data.
      * @param int $group_id
      * @return array
      */

@@ -17,5 +17,5 @@
             </div>
         @if($group['close']) </div> @endif
     @endforeach
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group/overall-ranking">Classificação Geral</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/geral">Classificação Geral</a>
 @stop

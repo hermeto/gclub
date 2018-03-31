@@ -10,9 +10,7 @@ Route::get('/match/{id}', 'MatchController@show');
 
 Route::get('/group', 'GroupController@show');
 
-Route::get('/group/overall-ranking', function () {
-    return view('group/overall-ranking');
-});
+Route::get('/geral', 'GeralController@show');
 
 Route::get('/playoffs', function () {
     return view('playoffs');
