@@ -12,6 +12,5 @@
             </div>
         </footer>
     </div>
-    <script src="{{ URL::to('assets/js/index.js') }}"></script>
-
+    {!! HTML::script('js/index.js') !!}
 @stop
