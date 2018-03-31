@@ -2,19 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Group;
 use App\GroupResult;
 use Request;
 
+/**
+ * Class MatchController
+ * @package App\Http\Controllers
+ */
 class MatchController extends Controller
 {
+    /**
+     * @var int
+     */
     private $id;
 
+    /**
+     * MatchController constructor.
+     */
     public function __construct()
     {
         $this->id = Request::route('id');
     }
 
+    /**
+     * Get results.
+     * @return $this
+     */
     public function show()
     {
         $results = [];

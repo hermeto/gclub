@@ -8,6 +8,8 @@ Route::post('/start', 'StartController@process');
 
 Route::get('/match/{id}', 'MatchController@show');
 
+Route::get('/group', 'GroupController@show');
+
 Route::get('/group/overall-ranking', function () {
     return view('group/overall-ranking');
 });

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Start\CreateGame;
 use App\Http\Controllers\Start\JoinTeamGroup;
-use App\Http\Controllers\Start\ListGroup;
 
 /**
  * Class StartController
@@ -17,12 +16,12 @@ class StartController extends Controller
      * - Joins a team in a group
      * - Creates games between teams
      * - - Creates rounds for teams
-     * - Prepares data for view
+     * - Redirect action for GroupController
      */
     public function process()
     {
         (new JoinTeamGroup())->run();
         (new CreateGame())->run();
-        return view('group')->with('groups', (new ListGroup())->run());
+        return redirect('/group');
     }
 }

@@ -1,25 +1,23 @@
 <?php
 
-
-namespace App\Http\Controllers\Start;
+namespace App\Http\Controllers;
 
 use App\Group;
-use App\Http\Controllers\Controller;
 use App\TeamGroup;
 
 /**
- * Class ListGroup
+ * Class GroupController
  * @package App\Http\Controllers\Start
  */
-class ListGroup extends Controller
+class GroupController extends Controller
 {
     /**
      * Prepare group data for page.
      * @return array
      */
-    public function run()
+    public function show()
     {
-        $data = [];
+        $groups = [];
         foreach (Group::all() as $key => $group) {
             $data[$key] = [
                 'id' => $group->id,
@@ -29,6 +27,6 @@ class ListGroup extends Controller
                 'close' => (($key + 1) % 4 == 0) ? true : false
             ];
         }
-        return $data;
+        return view('group')->with('groups', $groups);
     }
 }
