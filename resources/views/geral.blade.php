@@ -17,7 +17,7 @@
                 <tbody>
                 @php $count = 1; @endphp
                 @foreach($results as $result)
-                <tr>
+                <tr @if($result['playoffs']) class="alert-success" @endif>
                     <th scope="row">{{ $count++  }}</th>
                     <td>{{ $result->name }}</td>
                     <td class="text-center">{{ $result->victory }}</td>

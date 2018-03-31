@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Start;
 
 use App\Group;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Start\CreateGames\CreateRound;
-use App\Http\Controllers\Start\CreateGames\SaveGroupResult;
-use App\Http\Controllers\Start\CreateGames\SaveTeamScore;
+use App\Http\Controllers\Start\CreateGame\CreateRound;
+use App\Http\Controllers\Start\CreateGame\SaveGroupResult;
+use App\Http\Controllers\Start\CreateGame\SaveTeamScore;
 use App\TeamGroup;
 
 /**

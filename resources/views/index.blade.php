@@ -2,7 +2,7 @@
 @section('content')
     <div class="text-center">
         <h1 class="display-4">Gamers Club Challenge</h1>
-        <form method="post" action="/start">
+        <form method="get" action="/start">
             @csrf
             <button type="submit" class="btn btn-lg* btn-block btn-primary">Start</button>
             <footer class="pt-4 my-md-5 pt-md-5 border-top">

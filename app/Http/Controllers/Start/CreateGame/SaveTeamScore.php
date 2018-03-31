@@ -1,21 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Start\CreateGames;
+namespace App\Http\Controllers\Start\CreateGame;
 
-use App\GroupResult;
 use App\Http\Controllers\Controller;
+use App\Team;
 
 /**
- * Class CreateRound
+ * Class SaveTeamScore
  * @package App\Http\Controllers\Start\CreateGame
  */
-class SaveGroupResult extends Controller
+class SaveTeamScore extends Controller
 {
-    /**
-     * @var int
-     */
-    private $group_id;
-
     /**
      * @var int
      */
@@ -37,22 +32,19 @@ class SaveGroupResult extends Controller
     private $challenged_score;
 
     /**
-     * CreateRound constructor.
-     * @param int $group_id
+     * SaveTeamScore constructor.
      * @param int $challenger_team_id
      * @param int $challenged_team_id
      * @param int $challenger_score
      * @param int $challenged_score
      */
     public function __construct(
-        int $group_id,
         int $challenger_team_id,
         int $challenged_team_id,
         int $challenger_score,
         int $challenged_score
     )
     {
-        $this->group_id = $group_id;
         $this->challenger_team_id = $challenger_team_id;
         $this->challenged_team_id = $challenged_team_id;
         $this->challenger_score = $challenger_score;
@@ -60,16 +52,23 @@ class SaveGroupResult extends Controller
     }
 
     /**
-     * Save result.
+     * Save results for teams.
      */
     public function run()
     {
-        $groupResult = new GroupResult();
-        $groupResult->group_id = $this->group_id;
-        $groupResult->challenger_team_id = $this->challenger_team_id;
-        $groupResult->challenger_score = $this->challenger_score;
-        $groupResult->challenged_team_id = $this->challenged_team_id;
-        $groupResult->challenged_score = $this->challenged_score;
-        $groupResult->save();
+        $challenger = Team::find($this->challenger_team_id);
+        $challenger->victory = $challenger->victory + $this->challenger_score;
+
+        $challenged = Team::find($this->challenged_team_id);
+        $challenged->victory = $challenged->victory + $this->challenged_score;
+
+        if ($this->challenger_score > $this->challenged_score) {
+            $challenger->score = $challenger->score + 1;
+        } else {
+            $challenged->score = $challenged->score + 1;
+        }
+
+        $challenger->save();
+        $challenged->save();
     }
 }

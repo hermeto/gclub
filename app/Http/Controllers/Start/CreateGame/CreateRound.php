@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Start\CreateGames;
+namespace App\Http\Controllers\Start\CreateGame;
 
 use App\Http\Controllers\Controller;
 
