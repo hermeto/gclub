@@ -12,11 +12,11 @@
                             <td>
                                 <table class="table table-bordered">
                                     <tbody>
-                                    <tr @if($result['playoffs']) class="alert-success" @endif>
+                                    <tr @if($result['winner']) class="alert-success" @endif>
                                         <td>{{ $result->challengerTeam->name }}</td>
                                         <td class="text-center">{{ $result->challenger_score }}</td>
                                     </tr>
-                                    <tr @if(!$result['playoffs']) class="alert-success" @endif>
+                                    <tr @if(!$result['winner']) class="alert-success" @endif>
                                         <td>{{ $result->challengedTeam->name }}</td>
                                         <td class="text-center">{{ $result->challenged_score }}</td>
                                     </tr>

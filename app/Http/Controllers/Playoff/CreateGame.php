@@ -16,7 +16,7 @@ class CreateGame extends Controller
      */
     private $phase;
 
-    private $games = ['15', '7', '3', '1'];
+    private $games = ['15', '7', '3', '1', '0'];
 
     /**
      * CreateGame constructor.
@@ -32,25 +32,16 @@ class CreateGame extends Controller
      */
     public function run()
     {
-//        if ($this->phase == 4) {
-//            $this->makeTheChampion();
-//        } else {
-            foreach (range(0, $this->games[$this->phase]) as $game) {
-                $result = (new CreateRound())->run();
-                $team = new GetTeam($this->phase);
-                (new SaveResult(
-                    $team->challenger(),
-                    $team->challenged(),
-                    $result['challenger_score'],
-                    $result['challenged_score'],
-                    $this->phase
-                ))->run();
-            }
-//        }
-    }
-
-    private function makeTheChampion()
-    {
-        dump('MAKE CHAMPION');
+        foreach (range(0, $this->games[$this->phase]) as $game) {
+            $result = (new CreateRound())->run();
+            $team = new GetTeam($this->phase);
+            (new SaveResult(
+                $team->challenger(),
+                $team->challenged(),
+                $result['challenger_score'],
+                $result['challenged_score'],
+                $this->phase
+            ))->run();
+        }
     }
 }

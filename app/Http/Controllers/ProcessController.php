@@ -6,10 +6,10 @@ use App\Http\Controllers\Start\CreateGame;
 use App\Http\Controllers\Start\JoinTeamGroup;
 
 /**
- * Class StartController
+ * Class ProcessController
  * @package App\Http\Controllers
  */
-class StartController extends Controller
+class ProcessController extends Controller
 {
     /**
      * Runs the following steps:
@@ -18,7 +18,7 @@ class StartController extends Controller
      * - - Creates rounds for teams
      * - Redirect action for GroupController
      */
-    public function process()
+    public function run()
     {
         (new JoinTeamGroup())->run();
         (new CreateGame())->run();
