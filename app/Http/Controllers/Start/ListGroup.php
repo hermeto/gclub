@@ -25,8 +25,8 @@ class ListGroup extends Controller
                 'id' => $group->id,
                 'name' => $group->name,
                 'teams' => TeamGroup::with(['team'])->where('group_id', '=', $group->id)->get(),
-                'open' => (($key) % 4 === 0) ? true : false,
-                'close' => (($key + 1) % 4 === 0) ? true : false
+                'open' => (($key) % 4 == 0) ? true : false,
+                'close' => (($key + 1) % 4 == 0) ? true : false
             ];
         }
         return $data;

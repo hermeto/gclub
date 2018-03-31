@@ -24,4 +24,34 @@ class GroupResult extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Self belongs to Group.
+     * @property int id
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function group()
+    {
+        return $this->belongsTo(Group::class);
+    }
+
+    /**
+     * Self belongs to Team.
+     * @property int id
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function challengerTeam()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    /**
+     * Self belongs to Team.
+     * @property int id
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function challengedTeam()
+    {
+        return $this->belongsTo(Team::class);
+    }
 }

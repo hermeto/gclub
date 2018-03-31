@@ -6,13 +6,7 @@ Route::get('/', function () {
 
 Route::post('/start', 'StartController@process');
 
-Route::get('/group', function () {
-    return view('group');
-});
-
-Route::get('/group/match', function () {
-    return view('group/match');
-});
+Route::get('/match/{id}', 'MatchController@show');
 
 Route::get('/group/overall-ranking', function () {
     return view('group/overall-ranking');
