@@ -19,6 +19,8 @@ class CreateTableTeam extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 45);
+            $table->integer('score');
+            $table->integer('victory');
         });
     }
 

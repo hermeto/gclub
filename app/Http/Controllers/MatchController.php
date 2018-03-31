@@ -37,6 +37,7 @@ class MatchController extends Controller
             $results[$key] = $result;
             $results[$key]['open'] = (($key) % 5 == 0) ? true : false;
             $results[$key]['close'] = (($key + 1) % 5 == 0) ? true : false;
+            $results[$key]['playoffs'] = ($result->challenger_score > $result->challenged_score);
         }
         return view('group/match')->with('results', $results);
     }

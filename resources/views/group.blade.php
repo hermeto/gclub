@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <ul class="list-unstyled mt-3 mb-4">
                         @foreach($group['teams'] as $teams)
-                            <li> {{ $teams->team->name }}</li>
+                            <li @if($teams['playoffs']) class="alert-success" @endif> {{ $teams->team->name }}</li>
                         @endforeach
                     </ul>
                     <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/match/{{ $group['id'] }}">Partidas</a>

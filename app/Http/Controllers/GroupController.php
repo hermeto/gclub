@@ -19,14 +19,35 @@ class GroupController extends Controller
     {
         $groups = [];
         foreach (Group::all() as $key => $group) {
-            $data[$key] = [
+            $groups[$key] = [
                 'id' => $group->id,
                 'name' => $group->name,
-                'teams' => TeamGroup::with(['team'])->where('group_id', '=', $group->id)->get(),
+                'teams' => $this->prepareTeams($group->id),
                 'open' => (($key) % 4 == 0) ? true : false,
                 'close' => (($key + 1) % 4 == 0) ? true : false
             ];
         }
         return view('group')->with('groups', $groups);
+    }
+
+    /**
+     * @param int $group_id
+     * @return array
+     */
+    private function prepareTeams(int $group_id)
+    {
+        $teams = [];
+        $count = 0;
+        foreach (TeamGroup::with(['team' => function ($query) {
+            $query->orderBy('score', 'asc');
+            $query->orderBy('victory', 'asc');
+        }])
+                     ->where('group_id', '=', $group_id)
+                     ->get() as $key => $team) {
+            $teams[$key] = $team;
+            $teams[$key]['playoffs'] = ($count < 2) ? true : false;
+            $count++;
+        }
+        return $teams;
     }
 }

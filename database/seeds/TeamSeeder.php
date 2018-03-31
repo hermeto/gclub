@@ -30,7 +30,9 @@ class TeamSeeder extends Seeder
         foreach (range(1, 80) as $i) {
             Team::create(
                 [
-                    'name' => ucfirst($this->faker->numerify("{$this->faker->word} {$i}##"))
+                    'name' => ucfirst($this->faker->numerify("{$this->faker->word} {$i}##")),
+                    'score' => 0,
+                    'victory' => 0
                 ]
             );
         }
