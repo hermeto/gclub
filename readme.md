@@ -29,3 +29,16 @@ docker exec -it gclub-app php artisan migrate
 ```bash
 docker exec -it gclub-app php artisan db:seed
 ```
+### About
+
+#### Requirements
+
+- This app works with PHP 7.2 or above.
+
+#### Submitting bugs and feature requests
+
+Bugs and feature request are tracked on [GitHub](https://github.com/hermeto/gclub/issues)
+
+### Author
+
+Hermeto Romano - <hermeto.romano@gmail.com>
