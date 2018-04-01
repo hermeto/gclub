@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main') 
 @section('content')
     <div class="text-center">
         <h1 class="display-5">Gamers Club Challenge</h1>

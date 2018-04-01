@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main') 
 @section('content')
     <div class="card mb-4 box-shadow">
         <div class="card-header">

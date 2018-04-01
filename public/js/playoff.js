@@ -1,4 +1,4 @@
-/**
+/** 
  * Playoff class.
  */
 let playoff = new function () {

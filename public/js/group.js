@@ -1,4 +1,4 @@
-/**
+/** 
  * Group class.
  */
 let group = new function () {

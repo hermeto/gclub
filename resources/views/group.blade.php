@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main') 
 @section('content')
     @foreach($groups as $group)
         @if($group['open'])

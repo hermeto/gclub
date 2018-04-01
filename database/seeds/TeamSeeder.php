@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 use App\Team;
 use Illuminate\Database\Seeder;

@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main') 
 @section('content')
     <ul class="nav nav-tabs">
         <li class="nav-item">
