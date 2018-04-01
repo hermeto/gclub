@@ -16,7 +16,7 @@ class ValidateProcessTest extends TestCase
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject
      */
-    private $collection;
+    private $teamGroup;
 
     /**
      * ValidateProcessTest constructor.
@@ -28,7 +28,7 @@ class ValidateProcessTest extends TestCase
     {
         parent::__construct($name, $data, $dataName);
         try {
-            $this->collection = $this->createMock(Collection::class);
+            $this->teamGroup = $this->createMock(Collection::class);
         } catch (ReflectionException $e) {
             error_log('test:unit:process:validate-process-test:constructor - error: ' . $e);
         }
@@ -39,8 +39,8 @@ class ValidateProcessTest extends TestCase
      */
     public function testRunTeamGroupEmpty()
     {
-        $this->collection->method('isEmpty')->willReturn(true);
-        $assert = (new ValidateProcess($this->collection))->run();
+        $this->teamGroup->method('isEmpty')->willReturn(true);
+        $assert = (new ValidateProcess($this->teamGroup))->run();
         $this->assertEquals(false, $assert);
     }
 
@@ -49,8 +49,8 @@ class ValidateProcessTest extends TestCase
      */
     public function testRunTeamGroupFully()
     {
-        $this->collection->method('isEmpty')->willReturn(false);
-        $assert = (new ValidateProcess($this->collection))->run();
+        $this->teamGroup->method('isEmpty')->willReturn(false);
+        $assert = (new ValidateProcess($this->teamGroup))->run();
         $this->assertEquals(true, $assert);
     }
 }

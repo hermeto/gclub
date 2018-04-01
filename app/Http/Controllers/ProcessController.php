@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Group;
 use App\Http\Controllers\Process\ClearAll;
 use App\Http\Controllers\Process\CreateGame;
 use App\Http\Controllers\Process\JoinTeamGroup;
 use App\Http\Controllers\Process\ValidateProcess;
+use App\Team;
 use App\TeamGroup;
 
 /**
@@ -24,7 +26,11 @@ class ProcessController extends Controller
     public function run()
     {
         (new ClearAll())->run();
-        (new JoinTeamGroup())->run();
+
+        if (!(new JoinTeamGroup(Team::inRandomOrder()->get(), Group::all(), TeamGroup::all()))->run()) {
+            error_log('app:http:controllers:process-controller:run - error: TeamGroup empty');
+        };
+
         (new CreateGame())->run();
         return redirect('/group');
     }
