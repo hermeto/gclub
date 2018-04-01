@@ -1,7 +1,15 @@
 <p align="center">Gamers Club Challenge</p>
 
 ### Installation
-#### With install.sh
+#### install.sh
+- Clone the project:
+```bash
+git clone git@github.com:hermeto/gclub.git
+```
+- Run:
+```bash
+cd gclub && chmod +x install.sh && ./install.sh
+```
 #### Manually
 - Clone the project:
 ```bash
