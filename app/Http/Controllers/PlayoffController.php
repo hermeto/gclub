@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Playoff\ClearAll;
 use App\Http\Controllers\Playoff\CreateGame;
+use App\Http\Controllers\Playoff\ValidatePlayoff;
 use App\Playoff;
 use Request;
 
@@ -23,6 +24,14 @@ class PlayoffController extends Controller
             (new CreateGame($phase))->run();
         }
         return redirect('/playoff/result/0');
+    }
+
+    /**
+     * Validate playoffs.
+     */
+    public function valid()
+    {
+        (new ValidatePlayoff())->run();
     }
 
     /**

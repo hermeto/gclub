@@ -16,6 +16,6 @@ Route::get('/geral', 'GeralController@show');
 
 Route::get('/playoff', 'PlayoffController@run');
 
-Route::get('/playoff/validate', 'PlayoffController@validate');
+Route::get('/playoff/validate', 'PlayoffController@valid');
 
 Route::get('/playoff/result/{phase}', 'PlayoffController@show');
