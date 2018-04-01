@@ -34,6 +34,8 @@ docker exec -it gclub-app php artisan db:seed
 #### Requirements
 
 - This app works with PHP 7.2 or above.
+- Docker (^18.04.0-ce-rc1)
+- docker-compose (^1.19.0)
 
 #### Submitting bugs and feature requests
 
