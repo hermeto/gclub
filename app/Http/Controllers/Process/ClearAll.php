@@ -39,7 +39,8 @@ class ClearAll extends Controller
         Collection $groupResult,
         Collection $teamGroup,
         Collection $team
-    ) {
+    )
+    {
         $this->groupResult = $groupResult;
         $this->teamGroup = $teamGroup;
         $this->team = $team;
@@ -62,6 +63,7 @@ class ClearAll extends Controller
     }
 
     /**
+     * Clear GroupResult.
      * @return bool
      */
     private function clearGroupResult()
@@ -79,6 +81,7 @@ class ClearAll extends Controller
     }
 
     /**
+     * Clear TeamGroup.
      * @return bool
      */
     private function clearTeamGroup()
@@ -96,16 +99,18 @@ class ClearAll extends Controller
     }
 
     /**
-     *
+     * Clear score of teams.
      */
     private function clearResultTeam()
     {
-        foreach ($this->team as $team) {
-            $update = Team::find($team->id);
-            $update->score = 0;
-            $update->victory = 0;
-            $update->save();
-            error_log('app:http:controllers:process:clear-all:clear-result-team - id: ' . $team->id);
+        if (!$this->team->isEmpty()) {
+            foreach ($this->team as $team) {
+                $update = Team::find($team->id);
+                $update->score = 0;
+                $update->victory = 0;
+                $update->save();
+                error_log('app:http:controllers:process:clear-all:clear-result-team - id: ' . $team->id);
+            }
         }
     }
 }

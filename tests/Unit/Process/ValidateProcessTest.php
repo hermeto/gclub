@@ -36,8 +36,8 @@ class ValidateProcessTest extends TestCase
     public function testRunTeamGroupEmpty()
     {
         $this->teamGroup->method('isEmpty')->willReturn(true);
-        $assert = (new ValidateProcess($this->teamGroup))->run();
-        $this->assertEquals(false, $assert);
+        $result = (new ValidateProcess($this->teamGroup))->run();
+        $this->assertEquals(false, $result);
     }
 
     /**
@@ -46,8 +46,8 @@ class ValidateProcessTest extends TestCase
     public function testRunTeamGroupFully()
     {
         $this->teamGroup->method('isEmpty')->willReturn(false);
-        $assert = (new ValidateProcess($this->teamGroup))->run();
-        $this->assertEquals(true, $assert);
+        $result = (new ValidateProcess($this->teamGroup))->run();
+        $this->assertEquals(true, $result);
     }
 
     /**

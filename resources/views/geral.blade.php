@@ -17,16 +17,18 @@
                 <tbody>
                 @php $count = 1; @endphp
                 @foreach($results as $result)
-                <tr @if($result['playoffs']) class="alert-success" @endif>
-                    <th scope="row">{{ $count++  }}</th>
-                    <td>{{ $result->name }}</td>
-                    <td class="text-center">{{ $result->victory }}</td>
-                    <td class="text-center">{{ $result->score }}</td>
-                </tr>
+                    <tr @if($result['playoffs']) class="alert-success" @endif>
+                        <th scope="row">{{ $count++  }}</th>
+                        <td>{{ $result->name }}</td>
+                        <td class="text-center">{{ $result->victory }}</td>
+                        <td class="text-center">{{ $result->score }}</td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
+    <div class="text-center">
+        <a type="button" class="btn btn-outline-primary" href="/group">Groups</a>
+    </div>
 @stop

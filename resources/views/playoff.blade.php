@@ -22,28 +22,32 @@
             <table class="table">
                 <tbody>
                 @foreach($results as $result)
-                    @if($result['open']) <tr> @endif
-                        <td>
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr @if($result['winner']) class="alert-success" @endif>
-                                    <td>{{ $result->challengerTeam->name }}</td>
-                                    <td class="text-center">{{ $result->challenger_score }}</td>
-                                </tr>
-                                <tr @if(!$result['winner']) class="alert-success" @endif>
-                                    <td>{{ $result->challengedTeam->name }}</td>
-                                    <td class="text-center">{{ $result->challenged_score }}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </td>
-                    @if($result['close']) <tr> @endif
-                @endforeach
+                    @if($result['open'])
+                        <tr> @endif
+                            <td>
+                                <table class="table table-bordered">
+                                    <tbody>
+                                    <tr @if($result['winner']) class="alert-success" @endif>
+                                        <td>{{ $result->challengerTeam->name }}</td>
+                                        <td class="text-center">{{ $result->challenger_score }}</td>
+                                    </tr>
+                                    <tr @if(!$result['winner']) class="alert-success" @endif>
+                                        <td>{{ $result->challengedTeam->name }}</td>
+                                        <td class="text-center">{{ $result->challenged_score }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        @if($result['close'])
+                            <tr> @endif
+                        @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
-    <a type="button" class="btn btn-lg btn-block btn-outline-info" onclick="playoff.reset();">Restart</a>
+    <div class="text-center">
+        <a type="button" class="btn btn-outline-primary" onclick="playoff.group();">Groups</a>
+        <a type="button" class="btn btn-outline-danger" onclick="playoff.reset();">Restart</a>
+    </div>
     {!! HTML::script('js/playoff.js') !!}
 @stop

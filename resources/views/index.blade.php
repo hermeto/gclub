@@ -2,7 +2,9 @@
 @section('content')
     <div class="text-center">
         <h1 class="display-5">Gamers Club Challenge</h1>
-        <button type="button" class="btn btn-primary btn-lg" onclick="group.process();" id="group-btn">Start</button>
+        <div class="text-center">
+            <a type="button" class="btn btn-outline-primary" onclick="group.process();">Start</a>
+        </div>
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <div class="col-6 col-md text-center">
                 <ul class="list-unstyled text-small">

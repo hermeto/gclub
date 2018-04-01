@@ -43,8 +43,9 @@ class PlayoffController extends Controller
      */
     public function reset()
     {
-        (new ClearAll())->run();
-
+        if (!$auth = (new ClearAll(Playoff::all()))->run()) {
+            error_log('app:http:controllers:playoff-controller:run - error: Playoff empty');
+        }
         return $this->run();
     }
 

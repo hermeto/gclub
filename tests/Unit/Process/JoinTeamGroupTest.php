@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Unit\Process;
 
 use App\Http\Controllers\Process\JoinTeamGroup;
 use Illuminate\Database\Eloquent\Collection;
@@ -42,8 +42,8 @@ class JoinTeamGroupTest extends TestCase
     {
         $this->teams->method('isNotEmpty')->willReturn(false);
         $this->groups->method('isNotEmpty')->willReturn(false);
-        $assert = (new JoinTeamGroup($this->teams, $this->groups))->run();
-        $this->assertEquals(false, $assert);
+        $result = (new JoinTeamGroup($this->teams, $this->groups))->run();
+        $this->assertEquals(false, $result);
     }
 
     /**

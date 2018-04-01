@@ -27,5 +27,12 @@ let playoff = new function () {
         if (confirm('Do you want to restart the playoff process?')) {
             window.location = '/playoff/reset';
         }
-    }
+    };
+
+    /**
+     * Redirect to /group
+     */
+    this.group = function () {
+        window.location = '/group';
+    };
 };

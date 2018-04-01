@@ -7,8 +7,9 @@
         <div class="card-body">
             <table class="table">
                 <tbody>
-                    @foreach($results as $result)
-                        @if($result['open']) <tr> @endif
+                @foreach($results as $result)
+                    @if($result['open'])
+                        <tr> @endif
                             <td>
                                 <table class="table table-bordered">
                                     <tbody>
@@ -23,11 +24,14 @@
                                     </tbody>
                                 </table>
                             </td>
-                        @if($result['close']) <tr> @endif
-                    @endforeach
+                        @if($result['close'])
+                            <tr> @endif
+                        @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
+    <div class="text-center">
+        <a type="button" class="btn btn-outline-primary" href="/group">Groups</a>
+    </div>
 @stop

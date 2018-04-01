@@ -9,6 +9,7 @@ use App\Http\Controllers\Process\CreateGame;
 use App\Http\Controllers\Process\JoinTeamGroup;
 use App\Http\Controllers\Process\ValidateProcess;
 use App\Http\Controllers\Playoff\ClearAll as PlayoffClearAll;
+use App\Playoff;
 use App\Team;
 use App\TeamGroup;
 
@@ -58,7 +59,7 @@ class ProcessController extends Controller
             error_log('app:http:controllers:process-controller:run - error: Error clear data');
         }
 
-        (new PlayoffClearAll())->run();
+        (new PlayoffClearAll(Playoff::all()))->run();
 
         return $this->run();
     }
