@@ -12,7 +12,6 @@ let playoff = new function () {
             dataType: 'json',
             success: function (data) {
                 if (data) {
-                    alert("Existem chaves já definidas!");
                     window.location = '/playoff/result/0';
                 } else {
                     window.location = '/playoff';
@@ -25,7 +24,7 @@ let playoff = new function () {
      * Reset method.
      */
     this.reset = function () {
-        if (confirm('Deseja reestartar o processo?')) {
+        if (confirm('Do you want to restart the playoff process?')) {
             window.location = '/playoff/reset';
         }
     }

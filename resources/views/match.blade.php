@@ -29,5 +29,5 @@
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Voltar</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
 @stop

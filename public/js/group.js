@@ -13,7 +13,6 @@ let group = new function () {
             dataType: 'json',
             success: function (data) {
                 if (data) {
-                    alert("Existem jogos já configurados!");
                     window.location = '/group';
                 } else {
                     window.location = '/process';
@@ -26,7 +25,7 @@ let group = new function () {
      * Reset method.
      */
     this.reset = function () {
-        if (confirm('Deseja reestartar o processo?')) {
+        if (confirm('Do you want to restart the group process?')) {
             window.location = '/process/reset';
         }
     }
