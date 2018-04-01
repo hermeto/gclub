@@ -50,8 +50,7 @@ class SavePlayoffResult extends Controller
         int $challenger_score,
         int $challenged_score,
         int $phase
-    )
-    {
+    ) {
         $this->challenger_team_id = $challenger_team_id;
         $this->challenged_team_id = $challenged_team_id;
         $this->challenger_score = $challenger_score;

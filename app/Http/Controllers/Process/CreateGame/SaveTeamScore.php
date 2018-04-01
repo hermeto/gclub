@@ -43,8 +43,7 @@ class SaveTeamScore extends Controller
         int $challenged_team_id,
         int $challenger_score,
         int $challenged_score
-    )
-    {
+    ) {
         $this->challenger_team_id = $challenger_team_id;
         $this->challenged_team_id = $challenged_team_id;
         $this->challenger_score = $challenger_score;

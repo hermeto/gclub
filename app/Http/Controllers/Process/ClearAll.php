@@ -39,8 +39,7 @@ class ClearAll extends Controller
         Collection $groupResult,
         Collection $teamGroup,
         Collection $team
-    )
-    {
+    ) {
         $this->groupResult = $groupResult;
         $this->teamGroup = $teamGroup;
         $this->team = $team;

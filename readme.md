@@ -1,4 +1,4 @@
-<p align="center">Gamers Club Challenge</p>
+<p align="center">GClub Challenge</p>
 
 ### Installation
 

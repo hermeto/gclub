@@ -38,7 +38,6 @@ class ClearAllTest extends TestCase
     private function setMock()
     {
         try {
-
         } catch (ReflectionException $e) {
             error_log('test:unit:process:clear-all-test:constructor - error: ' . $e);
         }
