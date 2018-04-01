@@ -19,7 +19,6 @@ class PlayoffController extends Controller
      */
     public function run()
     {
-        (new ClearAll())->run();
         foreach (range(0, 4) as $phase) {
             (new CreateGame($phase))->run();
         }
@@ -36,6 +35,17 @@ class PlayoffController extends Controller
                 Playoff::all())
             )->run()
         );
+    }
+
+    /**
+     * Reset process.
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function reset()
+    {
+        (new ClearAll())->run();
+
+        return $this->run();
     }
 
     /**

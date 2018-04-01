@@ -12,15 +12,21 @@ let playoff = new function () {
             dataType: 'json',
             success: function (data) {
                 if (data) {
-                    if (confirm("Existem chaves já configuradas! Deseja visualiza-las? (Caso não, o processo será refeito.")) {
-                        window.location = '/playoff/result/0';
-                    } else {
-                        window.location = '/playoff';
-                    }
+                    alert("Existem chaves já definidas!");
+                    window.location = '/playoff/result/0';
                 } else {
                     window.location = '/playoff';
                 }
             }
         });
     };
+
+    /**
+     * Reset method.
+     */
+    this.reset = function () {
+        if (confirm('Deseja reestartar o processo?')) {
+            window.location = '/playoff/reset';
+        }
+    }
 };

@@ -39,6 +39,7 @@ class CreateGame extends Controller
                             $result['challenger_score'],
                             $result['challenged_score']
                         ))->run();
+                        error_log('app:http:controllers:process:create-game - challenger: ' . $challenger->id . ' x challenged: ' . $challenged->id);
                     }
                 }
             }

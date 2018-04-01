@@ -2,16 +2,16 @@
 @section('content')
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link @if($phase == 0) active @endif" href="/playoff/result/0">Décima-sexta de final</a>
+            <a class="nav-link @if($phase == 0) active @endif" href="/playoff/result/0">Sixteenth-finals</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if($phase == 1) active @endif" href="/playoff/result/1">Décima-oitava da final</a>
+            <a class="nav-link @if($phase == 1) active @endif" href="/playoff/result/1">Eighth-finals</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if($phase == 2) active @endif" href="/playoff/result/2">Quarta de final</a>
+            <a class="nav-link @if($phase == 2) active @endif" href="/playoff/result/2">Quarter-finals</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @if($phase == 3) active @endif" href="/playoff/result/3">Semifinal</a>
+            <a class="nav-link @if($phase == 3) active @endif" href="/playoff/result/3">Semi-finals</a>
         </li>
         <li class="nav-item">
             <a class="nav-link @if($phase == 4) active @endif" href="/playoff/result/4">Final</a>
@@ -43,5 +43,7 @@
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Voltar</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-info" onclick="playoff.reset();">Restart</a>
+    {!! HTML::script('js/playoff.js') !!}
 @stop

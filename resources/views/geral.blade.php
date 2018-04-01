@@ -2,16 +2,16 @@
 @section('content')
     <div class="card mb-4 box-shadow">
         <div class="card-header">
-            <h4 class="my-0 font-weight-normal">Classificação geral</h4>
+            <h4 class="my-0 font-weight-normal">Ranking</h4>
         </div>
         <div class="card-body">
             <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Equipe</th>
-                    <th scope="col" class="text-center">Vitória</th>
-                    <th scope="col" class="text-center">Pontuação</th>
+                    <th scope="col">Team</th>
+                    <th scope="col" class="text-center">Victory</th>
+                    <th scope="col" class="text-center">Score</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,5 +28,5 @@
             </table>
         </div>
     </div>
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Voltar</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/group">Groups</a>
 @stop

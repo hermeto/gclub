@@ -30,7 +30,7 @@ class GroupSeeder extends Seeder
         foreach (range('A', 'P') as $i) {
             Group::create(
                 [
-                    'name' => 'Grupo ' . $i
+                    'name' => 'Group ' . $i
                 ]
             );
         }

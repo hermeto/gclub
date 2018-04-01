@@ -16,7 +16,7 @@ class ValidatePlayoffTest extends TestCase
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject
      */
-    private $collection;
+    private $playoff;
 
     /**
      * ValidatePlayoffTest constructor.
@@ -27,11 +27,7 @@ class ValidatePlayoffTest extends TestCase
     public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        try {
-            $this->collection = $this->createMock(Collection::class);
-        } catch (ReflectionException $e) {
-            error_log('test:unit:playoff:validate-process-test:constructor - error: ' . $e);
-        }
+        $this->setMock();
     }
 
     /**
@@ -39,8 +35,8 @@ class ValidatePlayoffTest extends TestCase
      */
     public function testRunPlayoffEmpty()
     {
-        $this->collection->method('isEmpty')->willReturn(true);
-        $assert = (new ValidatePlayoff($this->collection))->run();
+        $this->playoff->method('isEmpty')->willReturn(true);
+        $assert = (new ValidatePlayoff($this->playoff))->run();
         $this->assertEquals(false, $assert);
     }
 
@@ -49,8 +45,20 @@ class ValidatePlayoffTest extends TestCase
      */
     public function testRunPlayoffFully()
     {
-        $this->collection->method('isEmpty')->willReturn(false);
-        $assert = (new ValidatePlayoff($this->collection))->run();
+        $this->playoff->method('isEmpty')->willReturn(false);
+        $assert = (new ValidatePlayoff($this->playoff))->run();
         $this->assertEquals(true, $assert);
+    }
+
+    /**
+     * Set mock.
+     */
+    private function setMock()
+    {
+        try {
+            $this->playoff = $this->createMock(Collection::class);
+        } catch (ReflectionException $e) {
+            error_log('test:unit:playoff:validate-process-test:constructor - error: ' . $e);
+        }
     }
 }

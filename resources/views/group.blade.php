@@ -12,13 +12,14 @@
                             <li @if($teams['playoffs']) class="alert-success" @endif> {{ $teams->team->name }}</li>
                         @endforeach
                     </ul>
-                    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/match/{{ $group['id'] }}">Partidas</a>
+                    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/match/{{ $group['id'] }}">Rounds</a>
                 </div>
             </div>
         @if($group['close']) </div> @endif
     @endforeach
-    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/geral">Classificação Geral</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-primary" href="/geral">Ranking</a>
     <a type="button" class="btn btn-lg btn-block btn-outline-danger" onclick="playoff.process();">Playoffs</a>
-    <a type="button" class="btn btn-lg btn-block btn-outline-info" href="/">Voltar</a>
+    <a type="button" class="btn btn-lg btn-block btn-outline-info" onclick="group.reset();">Restart</a>
+    {!! HTML::script('js/group.js') !!}
     {!! HTML::script('js/playoff.js') !!}
 @stop

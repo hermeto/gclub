@@ -17,30 +17,26 @@ class JoinTeamGroup extends Controller
      * @var Collection
      */
     private $teams;
+
     /**
      * @var Collection
      */
     private $groups;
-    /**
-     * @var Collection
-     */
-    private $teamGroup;
 
     /**
      * JoinTeamGroup constructor.
      * @param Collection $teams
      * @param Collection $groups
-     * @param Collection $teamGroup
      */
-    public function __construct(Collection $teams, Collection $groups, Collection $teamGroup)
+    public function __construct(Collection $teams, Collection $groups)
     {
         $this->teams = $teams;
         $this->groups = $groups;
-        $this->teamGroup = $teamGroup;
     }
 
     /**
      * Join a team in a group.
+     * @return bool
      */
     public function run()
     {
@@ -52,8 +48,9 @@ class JoinTeamGroup extends Controller
                 }
                 $start += 5;
             }
+            return true;
         }
-        return $this->assertIsFull();
+        return false;
     }
 
     /**
@@ -69,20 +66,9 @@ class JoinTeamGroup extends Controller
             $teamGroup->group_id = $group_id;
             $teamGroup->team_id = $this->teams[$item + $start]->id;
             $teamGroup->save();
+            error_log('app:http:controllers:process:save-team-group - group_id: ' . $group_id . ' - team_id: ' . $this->teams[$item + $start]->id);
         } catch (Exception $e) {
             error_log('app:http:controllers:process:save-team-group - group_id: ' . $group_id . ' - error: ' . $e);
         }
-    }
-
-    /**
-     * Assert if TeamGroup is full.
-     * @return bool
-     */
-    private function assertIsFull()
-    {
-        if ($this->teamGroup->isEmpty()) {
-            return false;
-        }
-        return true;
     }
 }

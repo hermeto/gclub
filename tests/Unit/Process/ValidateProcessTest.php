@@ -27,11 +27,7 @@ class ValidateProcessTest extends TestCase
     public function __construct(?string $name = null, array $data = [], string $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        try {
-            $this->teamGroup = $this->createMock(Collection::class);
-        } catch (ReflectionException $e) {
-            error_log('test:unit:process:validate-process-test:constructor - error: ' . $e);
-        }
+        $this->setMock();
     }
 
     /**
@@ -52,5 +48,17 @@ class ValidateProcessTest extends TestCase
         $this->teamGroup->method('isEmpty')->willReturn(false);
         $assert = (new ValidateProcess($this->teamGroup))->run();
         $this->assertEquals(true, $assert);
+    }
+
+    /**
+     * Set mock.
+     */
+    private function setMock()
+    {
+        try {
+            $this->teamGroup = $this->createMock(Collection::class);
+        } catch (ReflectionException $e) {
+            error_log('test:unit:process:validate-process-test:constructor - error: ' . $e);
+        }
     }
 }

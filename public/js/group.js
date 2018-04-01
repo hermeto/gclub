@@ -13,15 +13,21 @@ let group = new function () {
             dataType: 'json',
             success: function (data) {
                 if (data) {
-                    if (confirm("Existem jogos já configurados! Deseja visualiza-los? (Caso não, o processo será refeito.")) {
-                        window.location = '/group';
-                    } else {
-                        window.location = '/process';
-                    }
+                    alert("Existem jogos já configurados!");
+                    window.location = '/group';
                 } else {
                     window.location = '/process';
                 }
             }
         });
     };
+
+    /**
+     * Reset method.
+     */
+    this.reset = function () {
+        if (confirm('Deseja reestartar o processo?')) {
+            window.location = '/process/reset';
+        }
+    }
 };

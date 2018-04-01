@@ -17,6 +17,7 @@ class CreateTableGroupResult extends Migration
     public function up()
     {
         Schema::create('groups_results', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('challenger_team_id');
             $table->unsignedInteger('challenged_team_id');
             $table->unsignedInteger('group_id');
