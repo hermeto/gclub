@@ -40,7 +40,7 @@ docker run --rm -it -v $(pwd)/gclub:/app phpunit/phpunit:latest --testsuit=Unit
 
 #### Requirements
 
-- This app works with PHP 7.2 or above.
+- This app works with PHP (^7.0)
 - [Docker](https://docs.docker.com/install/) (^18.04.0-ce-rc1)
 - [docker-compose](https://docs.docker.com/compose/install/) (^1.19.0)
 
