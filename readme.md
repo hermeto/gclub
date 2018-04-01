@@ -18,11 +18,11 @@ cp gclub/.env.example gclub/.env
 ```bash
 docker run --rm -v $(pwd)/gclub:/app -it hermeto/gclub:php7-alpine php app/artisan key:generate
 ```
-- Upload containers with docker-compose:
+- Upload containers with docker-compose (this process may take up to 35 seconds after the images download):
 ```bash
 docker-compose -f gclub/docker-compose.yml up -d
 ```
-- Install database:
+- Install database (after MySQL container started):
 ```bash
 docker exec -it gclub-app php artisan migrate
 ```
@@ -32,13 +32,15 @@ docker exec -it gclub-app php artisan db:seed
 ```
 - Run unit tests:
 ```bash
-docker run --rm -it -v $(pwd):/app phpunit/phpunit:latest --testsuit=unit
+docker run --rm -it -v $(pwd)/gclub:/app phpunit/phpunit:latest --testsuit=Unit
 ```
+- Access your local environment: http://172.11.0.2
+
 ### About
 
 #### Requirements
 
-- This app works with PHP 7.2 or above.
+- This app works with PHP (^7.0)
 - [Docker](https://docs.docker.com/install/) (^18.04.0-ce-rc1)
 - [docker-compose](https://docs.docker.com/compose/install/) (^1.19.0)
 
