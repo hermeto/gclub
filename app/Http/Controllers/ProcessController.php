@@ -6,6 +6,7 @@ use App\Http\Controllers\Process\ClearAll;
 use App\Http\Controllers\Process\CreateGame;
 use App\Http\Controllers\Process\JoinTeamGroup;
 use App\Http\Controllers\Process\ValidateProcess;
+use App\TeamGroup;
 
 /**
  * Class ProcessController
@@ -33,6 +34,10 @@ class ProcessController extends Controller
      */
     public function valid()
     {
-        (new ValidateProcess())->run();
+        echo json_encode(
+            (new ValidateProcess(
+                TeamGroup::all())
+            )->run()
+        );
     }
 }

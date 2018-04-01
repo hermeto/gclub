@@ -39,6 +39,10 @@ docker exec -it gclub-app php artisan migrate
 ```bash
 docker exec -it gclub-app php artisan db:seed
 ```
+- Run unit tests:
+```bash
+docker run --rm -it -v $(pwd):/app phpunit/phpunit:latest --testsuit=unit
+```
 ### About
 
 #### Requirements

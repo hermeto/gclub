@@ -31,7 +31,11 @@ class PlayoffController extends Controller
      */
     public function valid()
     {
-        (new ValidatePlayoff())->run();
+        echo json_encode(
+            (new ValidatePlayoff(
+                Playoff::all())
+            )->run()
+        );
     }
 
     /**

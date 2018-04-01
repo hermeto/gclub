@@ -46,9 +46,9 @@ class SavePlayoffResult extends Controller
      */
     public function __construct(
         int $challenger_team_id,
-        int $challenged_team_id = null,
+        int $challenged_team_id,
         int $challenger_score,
-        int $challenged_score = null,
+        int $challenged_score,
         int $phase
     )
     {

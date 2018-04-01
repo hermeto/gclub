@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Playoff;
 
 use App\Http\Controllers\Controller;
-use App\Playoff;
+use Illuminate\Support\Collection;
 
 /**
  * Class ValidateProcess
@@ -12,15 +12,24 @@ use App\Playoff;
 class ValidatePlayoff extends Controller
 {
     /**
+     * @var Collection
+     */
+    private $playoffs;
+
+    public function __construct(Collection $playoffs)
+    {
+        $this->playoffs = $playoffs;
+    }
+
+    /**
      * @return string
      */
     public function run()
     {
         $auth = true;
-        $playoffs = Playoff::all();
-        if ($playoffs->isEmpty()) {
+        if ($this->playoffs->isEmpty()) {
             $auth = false;
         }
-        echo json_encode($auth);
+        return $auth;
     }
 }

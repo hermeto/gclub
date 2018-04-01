@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Http\Controllers\Controller;
 use App\TeamGroup;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Class ValidateProcess
@@ -12,15 +13,28 @@ use App\TeamGroup;
 class ValidateProcess extends Controller
 {
     /**
+     * @var TeamGroup
+     */
+    private $teamGroup;
+
+    /**
+     * ValidateProcess constructor.
+     * @param Collection $teamGroup
+     */
+    public function __construct(Collection $teamGroup)
+    {
+        $this->teamGroup = $teamGroup;
+    }
+
+    /**
      * @return string
      */
     public function run()
     {
         $auth = true;
-        $teamsGroups = TeamGroup::all();
-        if ($teamsGroups->isEmpty()) {
+        if ($this->teamGroup->isEmpty()) {
             $auth = false;
         }
-        echo json_encode($auth);
+        return $auth;
     }
 }
