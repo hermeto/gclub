@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Process;
+namespace App\Http\Controllers\Playoff;
 
 use App\Http\Controllers\Controller;
-use App\TeamGroup;
+use App\Playoff;
 
 /**
  * Class ValidateProcess
  * @package App\Http\Controllers\Process
  */
-class ValidateProcess extends Controller
+class ValidatePlayoff extends Controller
 {
     /**
      * @return string
@@ -17,8 +17,8 @@ class ValidateProcess extends Controller
     public function run()
     {
         $auth = true;
-        $teamsGroups = TeamGroup::all();
-        if ($teamsGroups->isEmpty()) {
+        $playoffs = Playoff::all();
+        if ($playoffs->isEmpty()) {
             $auth = false;
         }
         echo json_encode($auth);

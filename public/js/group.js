@@ -1,7 +1,7 @@
 /**
- * Index class.
+ * Group class.
  */
-let index = new function () {
+let group = new function () {
     /**
      * Process method.
      */
@@ -12,11 +12,14 @@ let index = new function () {
             dataType: 'json',
             success: function (data) {
                 if (data) {
-                    if (confirm('Existe um grupo configurado, deseja visualiza-lo? Caso não, o processo será refeito.')) {
+                    if (confirm("Existem jogos já configurados! Deseja visualiza-los? (Caso não, o processo será refeito.")) {
                         window.location = '/group';
+                    } else {
+                        window.location = '/process';
                     }
+                } else {
+                    window.location = '/process';
                 }
-                window.location = '/process';
             }
         });
     };

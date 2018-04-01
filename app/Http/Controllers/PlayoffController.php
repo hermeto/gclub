@@ -42,7 +42,7 @@ class PlayoffController extends Controller
             $results[$key]['winner'] = ($result->challenger_score > $result->challenged_score) ? true : false;
         }
 
-        return view('playoffs')
+        return view('playoff')
             ->with('phase', $phase)
             ->with('results', $results);
     }

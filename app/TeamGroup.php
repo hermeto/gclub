@@ -30,7 +30,7 @@ class TeamGroup extends Model
      */
     public function team()
     {
-        return $this->belongsTo(Team::class)->orderBy('score', 'desc');
+        return $this->belongsTo(Team::class);
     }
 
     /**
