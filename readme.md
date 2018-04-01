@@ -18,11 +18,11 @@ cp gclub/.env.example gclub/.env
 ```bash
 docker run --rm -v $(pwd)/gclub:/app -it hermeto/gclub:php7-alpine php app/artisan key:generate
 ```
-- Upload containers with docker-compose:
+- Upload containers with docker-compose (this process may take up to 35 seconds after the images download):
 ```bash
 docker-compose -f gclub/docker-compose.yml up -d
 ```
-- Install database:
+- Install database (after MySQL container started):
 ```bash
 docker exec -it gclub-app php artisan migrate
 ```
