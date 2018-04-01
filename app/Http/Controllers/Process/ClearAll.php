@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\GroupResult;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Playoff\ClearAll as PlayoffClearAll;
 use App\Team;
 use App\TeamGroup;
 
@@ -28,5 +29,6 @@ class ClearAll extends Controller
             $update->victory = 0;
             $update->save();
         }
+        (new PlayoffClearAll())->run();
     }
 }
