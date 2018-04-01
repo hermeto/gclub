@@ -34,10 +34,8 @@ docker exec -it gclub-app php artisan db:seed
 ```bash
 docker run --rm -it -v $(pwd):/app phpunit/phpunit:latest --testsuit=unit
 ```
-- Access your local environment: 
-```bash
-http://172.11.0.2
-```
+- Access your local environment: http://172.11.0.2
+
 ### About
 
 #### Requirements
