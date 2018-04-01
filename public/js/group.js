@@ -2,6 +2,7 @@
  * Group class.
  */
 let group = new function () {
+
     /**
      * Process method.
      */

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Playoff;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Playoff\CreateGame\SavePlayoffResult;
 use App\Http\Controllers\Common\CreateRound;
-use App\Http\Controllers\Playoff\CreateGame\SetAptTeam;
+use App\Http\Controllers\Playoff\CreateGame\SaveAptTeam;
 
 /**
  * Class CreateGame
@@ -30,7 +30,7 @@ class CreateGame extends Controller
     public function __construct(int $phase)
     {
         $this->phase = $phase;
-        (new SetAptTeam($phase))->run();
+        (new SaveAptTeam($phase))->run();
     }
 
     /**

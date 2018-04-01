@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controllers\Playoff\CreateGame;
 
 use App\AptTeam;
@@ -9,15 +8,15 @@ use App\Playoff;
 use App\Team;
 
 /**
- * Class SetAptTeam
+ * Class SaveAptTeam
  * @package App\Http\Controllers\Playoff\CreateGame
  */
-class SetAptTeam extends Controller
+class SaveAptTeam extends Controller
 {
     private $teams;
 
     /**
-     * SetAptTeam constructor.
+     * SaveAptTeam constructor.
      * @param int $phase
      */
     public function __construct(int $phase)
