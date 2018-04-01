@@ -16,9 +16,14 @@ class GeralController extends Controller
      */
     public function show()
     {
+        $teams = Team::select()
+            ->orderBy('teams.score', 'desc')
+            ->orderBy('teams.victory', 'desc')
+            ->get();
+
         $results = [];
         $count = 0;
-        foreach (Team::all()->sortByDesc('score')->sortByDesc('victory') as $key => $result) {
+        foreach ($teams as $key => $result) {
             $results[$key] = $result;
             $results[$key]['playoffs'] = ($count > 31) ? false : true;
             $count++;

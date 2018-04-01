@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Playoff;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Process\CreateGame\CreateRound;
+use App\Http\Controllers\Playoff\CreateGame\SavePlayoffResult;
+use App\Http\Controllers\Common\CreateRound;
+use App\Http\Controllers\Playoff\CreateGame\SetAptTeam;
 
 /**
  * Class CreateGame
@@ -16,6 +18,9 @@ class CreateGame extends Controller
      */
     private $phase;
 
+    /**
+     * @var array
+     */
     private $games = ['15', '7', '3', '1', '0'];
 
     /**
@@ -25,6 +30,7 @@ class CreateGame extends Controller
     public function __construct(int $phase)
     {
         $this->phase = $phase;
+        (new SetAptTeam($phase))->run();
     }
 
     /**
@@ -35,7 +41,7 @@ class CreateGame extends Controller
         foreach (range(0, $this->games[$this->phase]) as $game) {
             $result = (new CreateRound())->run();
             $team = new GetTeam($this->phase);
-            (new SaveResult(
+            (new SavePlayoffResult(
                 $team->challenger(),
                 $team->challenged(),
                 $result['challenger_score'],

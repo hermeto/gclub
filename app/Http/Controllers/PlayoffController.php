@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Playoff\ClearAll;
 use App\Http\Controllers\Playoff\CreateGame;
 use App\Playoff;
 use Request;
@@ -17,6 +18,7 @@ class PlayoffController extends Controller
      */
     public function run()
     {
+        (new ClearAll())->run();
         foreach (range(0, 4) as $phase) {
             (new CreateGame($phase))->run();
         }

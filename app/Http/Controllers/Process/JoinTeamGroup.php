@@ -18,7 +18,7 @@ class JoinTeamGroup extends Controller
      */
     public function run()
     {
-        $teams = Team::all();
+        $teams = Team::inRandomOrder()->get();
         $start = 0;
         foreach (Group::all() as $group) {
             foreach (range(0, 4) as $item) {

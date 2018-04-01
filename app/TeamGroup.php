@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TeamGroup
+ * @property int id
  * @property int team_id
  * @property int group_id
  * @package App
@@ -29,7 +30,7 @@ class TeamGroup extends Model
      */
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class)->orderBy('score', 'desc');
     }
 
     /**

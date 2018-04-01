@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Playoff;
 
+use App\AptTeam;
 use App\Http\Controllers\Controller;
 use App\Playoff;
-use Illuminate\Support\Facades\DB;
+use App\Team;
 
 class GetTeam extends Controller
 {
@@ -29,7 +30,10 @@ class GetTeam extends Controller
      */
     public function __construct(int $phase)
     {
-        $this->teams = DB::table('teams')->orderBy('score', 'victory')->limit(32)->get();
+        $this->teams = AptTeam::select()
+            ->inRandomOrder()
+            ->get();
+
         $this->phase = $phase;
     }
 
@@ -39,9 +43,9 @@ class GetTeam extends Controller
     public function challenger()
     {
         foreach ($this->teams as $team) {
-            if ($this->getPlayoffs($team->id)) {
-                $this->team_id = $team->id;
-                return $team->id;
+            if ($this->getPlayoffs($team->team_id)) {
+                $this->team_id = $team->team_id;
+                return $team->team_id;
             }
         }
     }
@@ -52,8 +56,8 @@ class GetTeam extends Controller
     public function challenged()
     {
         foreach ($this->teams as $team) {
-            if ($this->getPlayoffs($team->id) && ($team->id != $this->team_id)) {
-                return $team->id;
+            if ($this->getPlayoffs($team->team_id) && ($team->team_id != $this->team_id)) {
+                return $team->team_id;
             }
         }
     }

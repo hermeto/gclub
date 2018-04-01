@@ -6,6 +6,8 @@ Route::get('/', function () {
 
 Route::get('/process', 'ProcessController@run');
 
+Route::get('/process/validate', 'ProcessController@valid');
+
 Route::get('/match/{id}', 'MatchController@show');
 
 Route::get('/group', 'GroupController@show');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Process;
 
 use App\Group;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Process\CreateGame\CreateRound;
+use App\Http\Controllers\Common\CreateRound;
 use App\Http\Controllers\Process\CreateGame\SaveGroupResult;
 use App\Http\Controllers\Process\CreateGame\SaveTeamScore;
 use App\TeamGroup;

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Process\ClearAll;
 use App\Http\Controllers\Process\CreateGame;
 use App\Http\Controllers\Process\JoinTeamGroup;
+use App\Http\Controllers\Process\ValidateProcess;
 
 /**
  * Class ProcessController
@@ -20,8 +22,17 @@ class ProcessController extends Controller
      */
     public function run()
     {
+        (new ClearAll())->run();
         (new JoinTeamGroup())->run();
         (new CreateGame())->run();
         return redirect('/group');
+    }
+
+    /**
+     * Validate process.
+     */
+    public function valid()
+    {
+        (new ValidateProcess())->run();
     }
 }

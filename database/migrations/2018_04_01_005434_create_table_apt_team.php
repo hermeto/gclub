@@ -4,10 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-/**
- * Class CreateTableTeamGroup
- */
-class CreateTableTeamGroup extends Migration
+class CreateTableAptTeam extends Migration
 {
     /**
      * Run the migrations.
@@ -16,12 +13,10 @@ class CreateTableTeamGroup extends Migration
      */
     public function up()
     {
-        Schema::create('teams_groups_mapping', function (Blueprint $table) {
+        Schema::create('apt_teams', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('team_id');
-            $table->unsignedInteger('group_id');
             $table->foreign('team_id')->references('id')->on('teams');
-            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 
@@ -32,6 +27,6 @@ class CreateTableTeamGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams_groups_mapping');
+        Schema::dropIfExists('apt_teams');
     }
 }

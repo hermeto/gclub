@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\TeamGroup;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class GroupController
@@ -37,14 +38,18 @@ class GroupController extends Controller
      */
     private function prepareTeams(int $group_id)
     {
+        $teamsGroups = TeamGroup::select(DB::raw('teams_groups_mapping.*'))
+            ->leftJoin('teams', 'teams.id', '=', 'teams_groups_mapping.team_id')
+            ->orderBy('teams.score', 'desc')
+            ->orderBy('teams.victory', 'desc')
+            ->where('teams_groups_mapping.group_id', '=', $group_id)
+            ->get();
+
+        $teamsGroups->load('team');
+
         $teams = [];
         $count = 0;
-        foreach (TeamGroup::with(['team' => function ($query) {
-            $query->orderBy('score', 'asc');
-            $query->orderBy('victory', 'asc');
-        }])
-                     ->where('group_id', '=', $group_id)
-                     ->get() as $key => $team) {
+        foreach ($teamsGroups as $key => $team) {
             $teams[$key] = $team;
             $teams[$key]['playoffs'] = ($count < 2) ? true : false;
             $count++;

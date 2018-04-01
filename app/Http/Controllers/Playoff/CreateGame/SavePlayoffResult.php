@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Playoff;
+namespace App\Http\Controllers\Playoff\CreateGame;
 
 use App\Http\Controllers\Controller;
 use App\Playoff;
 
 /**
- * Class SaveResult
+ * Class SavePlayoffResult
  * @package App\Http\Controllers\Playoff
  */
-class SaveResult extends Controller
+class SavePlayoffResult extends Controller
 {
     /**
      * @var int
@@ -37,7 +37,7 @@ class SaveResult extends Controller
     private $phase;
 
     /**
-     * SaveResult constructor.
+     * SavePlayoffResult constructor.
      * @param int $challenger_team_id
      * @param int $challenged_team_id
      * @param int $challenger_score
