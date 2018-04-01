@@ -32,7 +32,7 @@ docker exec -it gclub-app php artisan db:seed
 ```
 - Run unit tests:
 ```bash
-docker run --rm -it -v $(pwd):/app phpunit/phpunit:latest --testsuit=unit
+docker run --rm -it -v $(pwd)/gclub:/app phpunit/phpunit:latest --testsuit=Unit
 ```
 - Access your local environment: http://172.11.0.2
 
