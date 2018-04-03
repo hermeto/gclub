@@ -1,6 +1,6 @@
 <p align="center">GClub Challenge</p>
 
-<p align="center">[![Build Status](https://travis-ci.org/hermeto/gclub.svg?branch=master)](https://travis-ci.org/hermeto/gclub)</p>
+[![Build Status](https://travis-ci.org/hermeto/gclub.svg?branch=master)](https://travis-ci.org/hermeto/gclub)
 
 ### Installation
 
