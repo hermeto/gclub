@@ -8,7 +8,6 @@ before_script:
   - mysql -e 'create database gclub_db;'
   - composer self-update
   - composer install --no-interaction
-  - docker ps
 
 script:
   - vendor/bin/phpunit
