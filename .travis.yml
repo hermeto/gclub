@@ -8,8 +8,6 @@ before_script:
   - mysql -e 'create database gclub_db;'
   - composer self-update
   - composer install --no-interaction
-  - php artisan migrate
-  - php artisan db:seed
   - docker ps
 
 script:
