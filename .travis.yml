@@ -1,34 +1,16 @@
-sudo: required
-
 language: php
 
 php:
   - 7.2
 
-services:
-  - docker
-
 before_script:
-  # install docker-compose
-  - sudo apt-get update
-  - sudo apt-get install docker-ce -y
-  - docker-compose --version
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker-compose --version
-
-  # install application
   - cp .env.travis .env
+  - mysql -e 'create database gclub_db;'
   - php artisan key:generate
   - composer self-update
   - composer install --no-interaction
-  - docker-compose pull
-  - docker-compose up -d
-  - docker-compose exec app php artisan migrate
-  - docker-compose exec app php artisan db:seed
   - php artisan migrate
+  - php artisan db:seed
   - docker ps
 
 script:
