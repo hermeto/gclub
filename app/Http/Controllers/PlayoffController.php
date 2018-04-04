@@ -58,8 +58,8 @@ class PlayoffController extends Controller
         $phase = Request::route('phase');
         $results = [];
         foreach (Playoff::with(['challengerTeam', 'challengedTeam'])
-                     ->where('phase', '=', $phase)
-                     ->get() as $key => $result) {
+                        ->where('phase', '=', $phase)
+                        ->get() as $key => $result) {
             $results[$key] = $result;
             $results[$key]['open'] = (($key) % 4 == 0) ? true : false;
             $results[$key]['close'] = (($key + 1) % 4 == 0) ? true : false;
