@@ -32,8 +32,8 @@ class MatchController extends Controller
     {
         $results = [];
         foreach (GroupResult::with(['group', 'challengerTeam', 'challengedTeam'])
-                     ->where('group_id', '=', $this->id)
-                     ->get() as $key => $result) {
+                        ->where('group_id', '=', $this->id)
+                        ->get() as $key => $result) {
             $results[$key] = $result;
             $results[$key]['open'] = (($key) % 5 == 0) ? true : false;
             $results[$key]['close'] = (($key + 1) % 5 == 0) ? true : false;
