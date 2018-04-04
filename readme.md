@@ -1,6 +1,8 @@
 <p align="center">GClub Challenge</p>
 
 [![Build Status](https://travis-ci.org/hermeto/gclub.svg?branch=master)](https://travis-ci.org/hermeto/gclub)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hermeto/gclub/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hermeto/gclub/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/hermeto/gclub/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 ### Installation
 
