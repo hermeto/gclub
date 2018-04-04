@@ -14,5 +14,5 @@
             </div>
         </footer>
     </div>
-    {!! HTML::script('js/group.js') !!}
+    {{ HTML::script('js/group.js', array(), true) }}
 @stop
