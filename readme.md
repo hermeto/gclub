@@ -56,54 +56,71 @@ docker run --rm -it -v $(pwd)/gclub:/app phpunit/phpunit:latest --testsuit=Unit
 
 #### Files for review
 ```bash
-  	app/AptTeam.php
-	app/Group.php
-	app/GroupResult.php
-	app/Http/Controllers/Common/CreateRound.php
-	app/Http/Controllers/GeralController.php
-	app/Http/Controllers/GroupController.php
-	app/Http/Controllers/MatchController.php
-	app/Http/Controllers/Playoff/ClearAll.php
-	app/Http/Controllers/Playoff/CreateGame.php
-	app/Http/Controllers/Playoff/CreateGame/SaveAptTeam.php
-	app/Http/Controllers/Playoff/CreateGame/SavePlayoffResult.php
-	app/Http/Controllers/Playoff/GetTeam.php
-	app/Http/Controllers/Playoff/ValidatePlayoff.php
-	app/Http/Controllers/PlayoffController.php
-	app/Http/Controllers/Process/ClearAll.php
-	app/Http/Controllers/Process/CreateGame.php
-	app/Http/Controllers/Process/CreateGame/SaveGroupResult.php
-	app/Http/Controllers/Process/CreateGame/SaveTeamScore.php
-	app/Http/Controllers/Process/JoinTeamGroup.php
-	app/Http/Controllers/Process/ValidateProcess.php
-	app/Http/Controllers/ProcessController.php
-	app/Playoff.php
-	app/Team.php
-	app/TeamGroup.php
-	database/migrations/2018_03_30_152602_create_table_team.php
-	database/migrations/2018_03_30_152747_create_table_group.php
-	database/migrations/2018_03_30_163727_create_table_team_group.php
-	database/migrations/2018_03_30_184838_create_table_group_result.php
-	database/migrations/2018_03_31_145455_create_table_playoff.php
-	database/migrations/2018_04_01_005434_create_table_apt_team.php
-	database/seeds/DatabaseSeeder.php
-	database/seeds/GroupSeeder.php
-	database/seeds/TeamSeeder.php
-	docker-compose.yml
-	public/js/group.js
-	public/js/playoff.js
-	resources/views/geral.blade.php
-	resources/views/group.blade.php
-	resources/views/index.blade.php
-	resources/views/main.blade.php
-	resources/views/match.blade.php
-	resources/views/playoff.blade.php
-	tests/Unit/Common/CreateRoundTest.php
-	tests/Unit/Playoff/ClearAllTest.php
-	tests/Unit/Playoff/ValidatePlayoffTest.php
-	tests/Unit/Process/ClearAllTest.php
-	tests/Unit/Process/JoinTeamGroupTest.php
-	tests/Unit/Process/ValidateProcessTest.php
+app/
+├── AptTeam.php
+├── Group.php
+├── GroupResult.php
+├── Http
+│   ├── Controllers
+│   │   ├── Common
+│   │   │   └── CreateRound.php
+│   │   ├── GeralController.php
+│   │   ├── GroupController.php
+│   │   ├── MatchController.php
+│   │   ├── Playoff
+│   │   │   ├── ClearAll.php
+│   │   │   ├── CreateGame
+│   │   │   │   ├── SaveAptTeam.php
+│   │   │   │   └── SavePlayoffResult.php
+│   │   │   ├── CreateGame.php
+│   │   │   ├── GetTeam.php
+│   │   │   └── ValidatePlayoff.php
+│   │   ├── PlayoffController.php
+│   │   ├── Process
+│   │   │   ├── ClearAll.php
+│   │   │   ├── CreateGame
+│   │   │   │   ├── SaveGroupResult.php
+│   │   │   │   └── SaveTeamScore.php
+│   │   │   ├── CreateGame.php
+│   │   │   ├── JoinTeamGroup.php
+│   │   │   └── ValidateProcess.php
+│   │   └── ProcessController.php
+├── Playoff.php
+├── TeamGroup.php
+└── Team.php
+database/
+├── migrations
+│   ├── 2018_03_30_152602_create_table_team.php
+│   ├── 2018_03_30_152747_create_table_group.php
+│   ├── 2018_03_30_163727_create_table_team_group.php
+│   ├── 2018_03_30_184838_create_table_group_result.php
+│   ├── 2018_03_31_145455_create_table_playoff.php
+│   └── 2018_04_01_005434_create_table_apt_team.php
+└── seeds
+    ├── DatabaseSeeder.php
+    ├── GroupSeeder.php
+    └── TeamSeeder.php
+public/js/
+├── group.js
+└── playoff.js
+resources/views/
+├── geral.blade.php
+├── group.blade.php
+├── index.blade.php
+├── main.blade.php
+├── match.blade.php
+└── playoff.blade.php
+tests/Unit/
+├── Common
+│   └── CreateRoundTest.php
+├── Playoff
+│   ├── ClearAllTest.php
+│   └── ValidatePlayoffTest.php
+└── Process
+    ├── ClearAllTest.php
+    ├── JoinTeamGroupTest.php
+    └── ValidateProcessTest.php
+docker-compose.yml
 ```
 
 #### Submitting bugs and feature requests
